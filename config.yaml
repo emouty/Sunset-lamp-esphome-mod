@@ -40,4 +40,23 @@ captive_portal:
 
 status_led:
   pin: GPIO15
-    
+
+light:
+  - platform: rgb
+    name: "Living Room Lights"
+    red: red_output
+    green: green_output
+    blue: blue_output
+  
+
+
+output:
+  - platform: ledc
+    id: output_red
+    pin: GPIO0
+  - platform: ledc
+    id: output_green
+    pin: GPIO1
+  - platform: ledc
+    id: output_blue
+    pin: GPIO2
