@@ -14,20 +14,23 @@ esp32:
   framework:
     type: esp-idf
     version: 5.2.1
+    platform_version: 6.7.0
     sdkconfig_options:
       CONFIG_ESPTOOLPY_FLASHSIZE_4MB: y
-      CONFIG_RMT_SUPPRESS_DEPRECATE_WARN: y
+      # CONFIG_RMT_SUPPRESS_DEPRECATE_WARN: y
 
 # Enable logging
 logger:
   level: DEBUG
+
 # Enable Home Assistant API
 api:
   encryption:
     key: !secret home_assistant_encryption_key
 
 ota:
-  password: !secret ota_password
+ - platform: esphome
+   password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -40,11 +43,12 @@ wifi:
 
 captive_portal:
 
-status_led:
-  pin: GPIO15
+# status_led:
+#   pin: GPIO15
 
 light:
   - platform: rgb
+    id: rgb_light
     name: "Sunset Light"
     red: output_red
     green: output_green
@@ -66,6 +70,48 @@ output:
     pin: GPIO23
     frequency: 500Hz
 
-# remote_receiver:
-#   pin: GPIO0
-#   dump: raw
+remote_receiver:
+  pin: 
+    number: GPIO0
+    inverted: true
+  dump: lg
+  rmt_channel: 2
+
+
+binary_sensor:
+  - platform: remote_receiver
+    name: "turn on"
+    lg:
+      data: "0x00F7C03F"
+      nbits: 32
+    on_press:
+      then: 
+       - light.turn_on: "rgb_light"
+  - platform: remote_receiver
+    name: "turn off"
+    lg:
+      data: "0x00F740BF"
+      nbits: 32
+    on_press:
+      then: 
+       - light.turn_off: "rgb_light"
+  - platform: remote_receiver
+    name: "increase brightness"
+    lg:
+      data: "0x00F700FF"
+      nbits: 32
+    on_press:
+      then: 
+       - light.dim_relative:
+          id: rgb_light
+          relative_brightness: 5%
+  - platform: remote_receiver
+    name: "lower brightness"
+    lg:
+      data: "0x00F7807F"
+      nbits: 32
+    on_press:
+      then: 
+       - light.dim_relative:
+          id: rgb_light
+          relative_brightness: -5%
