@@ -19,13 +19,14 @@ esp32:
 
 # Enable logging
 logger:
-
+  level: DEBUG
 # Enable Home Assistant API
 api:
-  password: ""
+  encryption:
+    key: !secret home_assistant_encryption_key
 
 ota:
-  password: ""
+  password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -43,20 +44,24 @@ status_led:
 
 light:
   - platform: rgb
-    name: "Living Room Lights"
-    red: red_output
-    green: green_output
-    blue: blue_output
+    name: "Sunset Light"
+    red: output_red
+    green: output_green
+    blue: output_blue
   
 
 
 output:
   - platform: ledc
     id: output_red
-    pin: GPIO0
+    pin: GPIO21
   - platform: ledc
     id: output_green
-    pin: GPIO1
+    pin: GPIO22
   - platform: ledc
     id: output_blue
-    pin: GPIO2
+    pin: GPIO23
+
+remote_receiver:
+  pin: GPIO0
+  dump: all
