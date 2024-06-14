@@ -29,8 +29,8 @@ api:
     key: !secret home_assistant_encryption_key
 
 ota:
- - platform: esphome
-   password: !secret ota_password
+  - platform: esphome
+    password: !secret ota_password
 
 wifi:
   ssid: !secret wifi_ssid
@@ -86,7 +86,7 @@ binary_sensor:
       nbits: 32
     on_press:
       then: 
-       - light.turn_on: "rgb_light"
+        - light.turn_on: "rgb_light"
   - platform: remote_receiver
     name: "turn off"
     lg:
@@ -94,7 +94,7 @@ binary_sensor:
       nbits: 32
     on_press:
       then: 
-       - light.turn_off: "rgb_light"
+        - light.turn_off: "rgb_light"
   - platform: remote_receiver
     name: "increase brightness"
     lg:
@@ -102,7 +102,7 @@ binary_sensor:
       nbits: 32
     on_press:
       then: 
-       - light.dim_relative:
+        - light.dim_relative:
           id: rgb_light
           relative_brightness: 5%
   - platform: remote_receiver
@@ -112,6 +112,6 @@ binary_sensor:
       nbits: 32
     on_press:
       then: 
-       - light.dim_relative:
+        - light.dim_relative:
           id: rgb_light
           relative_brightness: -5%
