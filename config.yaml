@@ -16,6 +16,7 @@ esp32:
     version: 5.2.1
     sdkconfig_options:
       CONFIG_ESPTOOLPY_FLASHSIZE_4MB: y
+      CONFIG_RMT_SUPPRESS_DEPRECATE_WARN: y
 
 # Enable logging
 logger:
@@ -55,13 +56,16 @@ output:
   - platform: ledc
     id: output_red
     pin: GPIO21
+    frequency: 500Hz
   - platform: ledc
     id: output_green
     pin: GPIO22
+    frequency: 500Hz
   - platform: ledc
     id: output_blue
     pin: GPIO23
+    frequency: 500Hz
 
-remote_receiver:
-  pin: GPIO0
-  dump: all
+# remote_receiver:
+#   pin: GPIO0
+#   dump: raw
