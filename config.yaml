@@ -159,10 +159,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 0
-        green: 0
-        blue: 1
+          id: rgb_light
+          red: 0
+          green: 0
+          blue: 1
 - platform: remote_receiver
     name: "full white"
     lg:
@@ -170,12 +170,11 @@ binary_sensor:
       nbits: 32
     on_press:
       then: 
-       
-- light.turn_on:
-        id: rgb_light
-        red: 1
-        green: 1
-        blue: 1
+       - light.turn_on:
+          id: rgb_light
+          red: 1
+          green: 1
+          blue: 1
 - platform: remote_receiver
     name: "rgb_red"
     lg:
@@ -184,10 +183,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 1
-        green: 0
-        blue: 0
+          id: rgb_light
+          red: 1
+          green: 0
+          blue: 0
 - platform: remote_receiver
     name: "rgb_tangerine"
     lg:
@@ -196,10 +195,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 100%
-        green: 21%
-        blue: 5%
+          id: rgb_light
+          red: 100%
+          green: 21%
+          blue: 5%
 - platform: remote_receiver
     name: "rgb_melon"
     lg:
@@ -208,10 +207,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 100%
-        green: 49%
-        blue: 5%
+          id: rgb_light
+          red: 100%
+          green: 49%
+          blue: 5%
 - platform: remote_receiver
     name: "rgb_yellow"
     lg:
@@ -220,10 +219,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 100%
-        green: 100%
-        blue: 0%
+          id: rgb_light
+          red: 100%
+          green: 100%
+          blue: 0%
 - platform: remote_receiver
     name: "rgb_green"
     lg:
@@ -232,10 +231,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 5%
-        green: 100%
-        blue: 5%
+          id: rgb_light
+          red: 5%
+          green: 100%
+          blue: 5%
 - platform: remote_receiver
     name: "rgb_baby_blue"
     lg:
@@ -244,10 +243,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 0%
-        green: 100%
-        blue: 100%
+          id: rgb_light
+          red: 0%
+          green: 100%
+          blue: 100%
 - platform: remote_receiver
     name: "rgb_turquoise"
     lg:
@@ -256,10 +255,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 15%
-        green: 50%
-        blue: 100%
+          id: rgb_light
+          red: 15%
+          green: 50%
+          blue: 100%
 - platform: remote_receiver
     name: "rgb_blue_light"
     lg:
@@ -268,10 +267,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 5%
-        green: 30%
-        blue: 100%
+          id: rgb_light
+          red: 5%
+          green: 30%
+          blue: 100%
 - platform: remote_receiver
     name: "rgb_blue_dark"
     lg:
@@ -280,10 +279,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 0%
-        green: 5%
-        blue: 100%
+          id: rgb_light
+          red: 0%
+          green: 5%
+          blue: 100%
 - platform: remote_receiver
     name: "rgb_purple_dark"
     lg:
@@ -292,10 +291,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 25%
-        green: 2%
-        blue: 100%
+          id: rgb_light
+          red: 25%
+          green: 2%
+          blue: 100%
 - platform: remote_receiver
     name: "rgb_purple_medium"
     lg:
@@ -304,10 +303,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 45%
-        green: 0%
-        blue: 100%
+          id: rgb_light
+          red: 45%
+          green: 0%
+          blue: 100%
 - platform: remote_receiver
     name: "rgb_purple_light"
     lg:
@@ -316,10 +315,10 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        red: 100%
-        green: 0%
-        blue: 100%
+          id: rgb_light
+          red: 100%
+          green: 0%
+          blue: 100%
 - platform: remote_receiver
     name: "flash"
     lg:
@@ -328,9 +327,9 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        effect: 
-          flicker:
+          id: rgb_light
+          effect: 
+            flicker:
 - platform: remote_receiver
     name: "strobe"
     lg:
@@ -339,9 +338,9 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        effect: 
-          strobe:
+          id: rgb_light
+          effect: 
+            strobe:
 - platform: remote_receiver
     name: "fade"
     lg:
@@ -350,9 +349,9 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        effect:
-          pulse:
+          id: rgb_light
+          effect:
+            pulse:
 - platform: remote_receiver
     name: "smooth"
     lg:
@@ -361,7 +360,7 @@ binary_sensor:
     on_press:
       then: 
        - light.turn_on:
-        id: rgb_light
-        effect:
-          pulse:
-            update__interval: 5s
+          id: rgb_light
+          effect:
+            pulse:
+              update__interval: 5s
