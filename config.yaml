@@ -53,22 +53,28 @@ light:
     red: output_red
     green: output_green
     blue: output_blue
-  
+    effects:
+      - flicker:
+      - strobe:
+      - random:
+      - random:
+          name: fade
+          update_interval: 5s
 
 
 output:
   - platform: ledc
     id: output_red
     pin: GPIO21
-    frequency: 500Hz
+    frequency: 250Hz
   - platform: ledc
     id: output_green
     pin: GPIO22
-    frequency: 500Hz
+    frequency: 250Hz
   - platform: ledc
     id: output_blue
     pin: GPIO23
-    frequency: 500Hz
+    frequency: 250Hz
 
 remote_receiver:
   pin: 
@@ -127,240 +133,236 @@ binary_sensor:
           red: 1
           green: 0
           blue: 0
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "full green"
     lg:
       data: "0x00F7A05F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 0
           green: 1
           blue: 0
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "full blue"
     lg:
       data: "0x00F7609F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 0
           green: 0
           blue: 1
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "full blue"
     lg:
       data: "0x00F7609F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 0
           green: 0
           blue: 1
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "full white"
     lg:
       data: "0x00F7609F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 1
           green: 1
           blue: 1
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_red"
     lg:
       data: "0x00F710EF"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 1
           green: 0
           blue: 0
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_tangerine"
     lg:
       data: "0x00F730CF"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 100%
           green: 21%
           blue: 5%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_melon"
     lg:
       data: "0x00F708F7"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 100%
           green: 49%
           blue: 5%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_yellow"
     lg:
       data: "0x00F728D7"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 100%
           green: 100%
           blue: 0%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_green"
     lg:
       data: "0x00F7906F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 5%
           green: 100%
           blue: 5%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_baby_blue"
     lg:
       data: "0x00F7B04F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 0%
           green: 100%
           blue: 100%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_turquoise"
     lg:
       data: "0x00F78877"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 15%
           green: 50%
           blue: 100%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_blue_light"
     lg:
       data: "0x00F7A857"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 5%
           green: 30%
           blue: 100%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_blue_dark"
     lg:
       data: "0x00F750AF"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 0%
           green: 5%
           blue: 100%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_purple_dark"
     lg:
       data: "0x00F7708F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 25%
           green: 2%
           blue: 100%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_purple_medium"
     lg:
       data: "0x00F748B7"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 45%
           green: 0%
           blue: 100%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "rgb_purple_light"
     lg:
       data: "0x00F76897"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
           red: 100%
           green: 0%
           blue: 100%
-- platform: remote_receiver
+  - platform: remote_receiver
     name: "flash"
     lg:
       data: "0x00F7D02F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
-          effect: 
-            flicker:
-- platform: remote_receiver
+          effect: flicker
+  - platform: remote_receiver
     name: "strobe"
     lg:
       data: "0x00F7F00F"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
-          effect: 
-            strobe:
-- platform: remote_receiver
+          effect: strobe
+  - platform: remote_receiver
     name: "fade"
     lg:
       data: "0x00F7C837"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
-          effect:
-            pulse:
-- platform: remote_receiver
+          effect: pulse
+  - platform: remote_receiver
     name: "smooth"
     lg:
       data: "0x00F7E817"
       nbits: 32
     on_press:
       then: 
-       - light.turn_on:
+      - light.turn_on:
           id: rgb_light
-          effect:
-            pulse:
-              update__interval: 5s
+          effect: random
+          
